@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no"
+  />
+  <title>Hugo Run</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="phone-frame">
+      <header class="hud">
+        <div class="pill">Pontuação <strong id="score">0</strong></div>
+        <div class="pill">Recorde <strong id="best">0</strong></div>
+      </header>
+
+      <main id="game" aria-label="Jogo endless runner mobile">
+        <div class="sky-layer"></div>
+        <div class="sun-glow"></div>
+        <div class="city-layer"></div>
+        <div class="road-glow"></div>
+        <div id="road"></div>
+
+        <div id="lane-overlay">
+          <div class="lane-line left"></div>
+          <div class="lane-line right"></div>
+        </div>
+
+        <div id="obstacles"></div>
+        <div id="fx-layer"></div>
+
+        <div id="characters">
+          <div id="chaser" class="character edinei">
+            <img id="edinei-img" src="assets/edinei.png" alt="Edinei" />
+            <div class="fallback-body"></div>
+          </div>
+
+          <div id="player" class="character hugo">
+            <img id="hugo-img" src="assets/hugo.png" alt="Hugo" />
+            <div class="fallback-body"></div>
+          </div>
+        </div>
+
+        <div id="smoke" class="smoke-cloud" aria-hidden="true">
+          <div class="puff puff1"></div>
+          <div class="puff puff2"></div>
+          <div class="puff puff3"></div>
+          <div class="puff puff4"></div>
+          <div class="puff puff5"></div>
+          <div class="puff puff6"></div>
+        </div>
+
+        <div id="touch-hint">Arraste para cima, esquerda ou direita</div>
+
+        <section id="start-screen" class="overlay show">
+          <div class="panel">
+            <span class="mini-badge">mobile runner</span>
+            <h1>Hugo Run</h1>
+            <p>
+              O Hugo corre e foge. Se bater em um obstáculo, o Edinei acelera,
+              alcança, toca uma fala aleatória, objetos voam e aparece a nuvem
+              de briga.
+            </p>
+
+            <div class="controls-preview">
+              <span>⬅️➡️ desviar</span>
+              <span>⬆️ pular</span>
+            </div>
+
+            <button id="start-btn" class="action-btn">Jogar</button>
+          </div>
+        </section>
+
+        <section id="game-over-screen" class="overlay">
+          <div class="panel">
+            <span class="mini-badge">fim de jogo</span>
+            <h2>Edinei pegou o Hugo</h2>
+            <p id="final-text">Pontuação: 0</p>
+            <button id="restart-btn" class="action-btn">Jogar de novo</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
