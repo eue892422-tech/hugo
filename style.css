@@ -8,9 +8,7 @@
   --white: #f7f9ff;
   --road-1: #1d223f;
   --road-2: #293052;
-  --road-3: #6ce0ff;
   --danger: #ff5b6e;
-  --good: #6fffd5;
   --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
 }
 
@@ -23,8 +21,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background:
-    radial-gradient(circle at top, #24285d 0%, #14152c 38%, #090a15 100%);
+  background: radial-gradient(circle at top, #24285d 0%, #14152c 38%, #090a15 100%);
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   color: var(--white);
   overflow: hidden;
@@ -48,9 +45,7 @@ body {
   width: min(100vw, 480px);
   height: 100svh;
   overflow: hidden;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)),
-    linear-gradient(180deg, #171936 0%, #111327 100%);
+  background: linear-gradient(180deg, #171936 0%, #111327 100%);
   box-shadow: var(--shadow);
 }
 
@@ -59,7 +54,7 @@ body {
   top: max(14px, env(safe-area-inset-top));
   left: 0;
   right: 0;
-  z-index: 40;
+  z-index: 60;
   padding: 0 14px;
   display: flex;
   justify-content: space-between;
@@ -77,7 +72,6 @@ body {
   border: 1px solid rgba(255,255,255,0.12);
   backdrop-filter: blur(12px);
   font-size: 0.92rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.18);
 }
 
 .pill strong {
@@ -109,10 +103,8 @@ body {
   top: 7%;
   transform: translateX(-50%);
   border-radius: 50%;
-  background:
-    radial-gradient(circle, rgba(255,220,130,0.95) 0%, rgba(255,159,104,0.7) 28%, rgba(255,115,160,0.28) 55%, rgba(255,115,160,0) 72%);
+  background: radial-gradient(circle, rgba(255,220,130,0.95) 0%, rgba(255,159,104,0.7) 28%, rgba(255,115,160,0.28) 55%, rgba(255,115,160,0) 72%);
   filter: blur(6px);
-  opacity: 0.9;
 }
 
 .city-layer {
@@ -122,7 +114,6 @@ body {
   bottom: 40%;
   height: 24%;
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)),
     linear-gradient(90deg,
       transparent 0 2%,
       rgba(20, 21, 44, 0.95) 2% 7%,
@@ -146,7 +137,6 @@ body {
       rgba(17, 18, 39, 0.95) 82% 90%,
       transparent 90% 100%);
   opacity: 0.95;
-  filter: drop-shadow(0 0 16px rgba(92, 216, 255, 0.08));
 }
 
 .road-glow {
@@ -166,18 +156,16 @@ body {
   inset: 0;
   background:
     linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0) 12%),
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.26) 0 14px,
-      rgba(255,255,255,0) 14px 58px
-    ),
+    repeating-linear-gradient(to bottom, rgba(255,255,255,0.26) 0 14px, rgba(255,255,255,0) 14px 58px),
     linear-gradient(180deg, var(--road-2) 0%, var(--road-1) 22%, #161a2d 100%);
   clip-path: polygon(24% 18%, 76% 18%, 100% 100%, 0% 100%);
   opacity: 0.97;
-  filter: drop-shadow(0 0 24px rgba(0,0,0,0.35));
 }
 
-#lane-overlay {
+#lane-overlay,
+#obstacles,
+#fx-layer,
+#characters {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -189,7 +177,6 @@ body {
   height: 82%;
   width: 3px;
   background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(125, 240, 255, 0.22));
-  box-shadow: 0 0 12px rgba(118, 240, 255, 0.4);
   opacity: 0.55;
 }
 
@@ -201,14 +188,6 @@ body {
 .lane-line.right {
   left: 62%;
   transform: translateX(-50%) skewX(9deg);
-}
-
-#obstacles,
-#fx-layer,
-#characters {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
 }
 
 .character {
@@ -265,7 +244,6 @@ body {
   top: 3%;
   border-radius: 50%;
   background: var(--skin);
-  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.06);
 }
 
 .fallback-body::after {
@@ -276,11 +254,7 @@ body {
   top: 25%;
   bottom: 10%;
   border-radius: 24px 24px 18px 18px;
-  background:
-    linear-gradient(180deg, var(--shirt) 0 44%, var(--pants) 44% 100%);
-  box-shadow:
-    inset 0 -8px 0 rgba(0,0,0,0.08),
-    0 12px 22px rgba(0,0,0,0.15);
+  background: linear-gradient(180deg, var(--shirt) 0 44%, var(--pants) 44% 100%);
 }
 
 .obstacle {
@@ -307,30 +281,13 @@ body {
   width: 68px;
   height: 68px;
   border-radius: 12px;
-  background:
-    linear-gradient(135deg, #d48a4e, #9d5d27);
+  background: linear-gradient(135deg, #d48a4e, #9d5d27);
   border: 4px solid #6f3b1a;
 }
 
-.obstacle.crate .cross {
-  position: absolute;
-  background: rgba(76, 37, 11, 0.75);
-  border-radius: 4px;
-}
-
-.obstacle.crate .cross.a {
-  left: 8px;
-  right: 8px;
-  top: 28px;
-  height: 8px;
-}
-
-.obstacle.crate .cross.b {
-  top: 8px;
-  bottom: 8px;
-  left: 28px;
-  width: 8px;
-}
+.obstacle.crate .cross { position: absolute; background: rgba(76, 37, 11, 0.75); border-radius: 4px; }
+.obstacle.crate .cross.a { left: 8px; right: 8px; top: 28px; height: 8px; }
+.obstacle.crate .cross.b { top: 8px; bottom: 8px; left: 28px; width: 8px; }
 
 .obstacle.barrel {
   width: 60px;
@@ -340,22 +297,9 @@ body {
   border: 4px solid #0f4762;
 }
 
-.obstacle.barrel .band {
-  position: absolute;
-  left: 6px;
-  right: 6px;
-  height: 8px;
-  background: rgba(255,255,255,0.3);
-  border-radius: 10px;
-}
-
-.obstacle.barrel .band.top {
-  top: 14px;
-}
-
-.obstacle.barrel .band.bottom {
-  bottom: 14px;
-}
+.obstacle.barrel .band { position: absolute; left: 6px; right: 6px; height: 8px; background: rgba(255,255,255,0.3); border-radius: 10px; }
+.obstacle.barrel .band.top { top: 14px; }
+.obstacle.barrel .band.bottom { bottom: 14px; }
 
 .obstacle.cone {
   width: 54px;
@@ -379,8 +323,7 @@ body {
   width: 84px;
   height: 76px;
   border-radius: 14px;
-  background:
-    linear-gradient(180deg, #6f84a5, #465675);
+  background: linear-gradient(180deg, #6f84a5, #465675);
   border: 4px solid #2f3e57;
 }
 
@@ -393,7 +336,6 @@ body {
   transform: translate(-50%, -50%) rotate(45deg);
   border-radius: 8px;
   background: linear-gradient(135deg, #ffd96a, #ff9f1c);
-  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.12);
 }
 
 .smoke-cloud {
@@ -416,11 +358,7 @@ body {
 .puff {
   position: absolute;
   border-radius: 50%;
-  background:
-    radial-gradient(circle at 35% 30%, rgba(255,255,255,0.95), rgba(238,242,255,0.88) 36%, rgba(176,181,210,0.95) 75%, rgba(100,107,140,0.95) 100%);
-  box-shadow:
-    inset 0 -8px 0 rgba(0,0,0,0.08),
-    0 10px 20px rgba(0,0,0,0.15);
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.95), rgba(238,242,255,0.88) 36%, rgba(176,181,210,0.95) 75%, rgba(100,107,140,0.95) 100%);
 }
 
 .puff1 { width: 58px; height: 58px; left: 8px; top: 38px; }
@@ -439,7 +377,6 @@ body {
   transform: translate(-50%, -50%);
   z-index: 31;
   pointer-events: none;
-  filter: drop-shadow(0 8px 14px rgba(0,0,0,0.28));
 }
 
 .flying-thing img {
@@ -455,9 +392,7 @@ body {
 
 .flying-thing.fallback {
   border-radius: 12px;
-  background:
-    radial-gradient(circle at 30% 30%, #fff5bd 0 16%, #ffb14f 16% 46%, #ff6f47 46% 100%);
-  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.1);
+  background: radial-gradient(circle at 30% 30%, #fff5bd 0 16%, #ffb14f 16% 46%, #ff6f47 46% 100%);
 }
 
 #touch-hint {
@@ -472,13 +407,12 @@ body {
   color: rgba(255,255,255,0.92);
   background: rgba(8, 11, 24, 0.42);
   border: 1px solid rgba(255,255,255,0.12);
-  backdrop-filter: blur(8px);
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-  z-index: 50;
+  z-index: 80;
   display: grid;
   place-items: center;
   padding: 22px;
@@ -499,26 +433,17 @@ body {
   border-radius: 26px;
   padding: 24px 20px;
   text-align: center;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)),
-    rgba(11, 15, 30, 0.9);
+  background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)), rgba(11, 15, 30, 0.9);
   border: 1px solid rgba(255,255,255,0.14);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
 }
 
-.panel h1,
-.panel h2 {
+.panel h1, .panel h2 {
   margin: 8px 0 12px;
   line-height: 1.05;
 }
 
-.panel h1 {
-  font-size: clamp(2.2rem, 7vw, 3.2rem);
-}
-
-.panel h2 {
-  font-size: clamp(1.7rem, 6vw, 2.4rem);
-}
+.panel h1 { font-size: clamp(2.2rem, 7vw, 3.2rem); }
+.panel h2 { font-size: clamp(1.7rem, 6vw, 2.4rem); }
 
 .panel p {
   margin: 0 0 18px;
@@ -565,15 +490,10 @@ body {
   font-weight: 800;
   font-size: 1rem;
   background: linear-gradient(135deg, var(--yellow), #ff9c52);
-  box-shadow:
-    0 10px 24px rgba(255, 180, 85, 0.35),
-    inset 0 -4px 0 rgba(0,0,0,0.1);
-  transition: transform 0.12s ease, filter 0.12s ease;
 }
 
 .action-btn:active {
   transform: scale(0.98);
-  filter: brightness(0.98);
 }
 
 #game.shake {
@@ -581,18 +501,18 @@ body {
 }
 
 @keyframes gameShake {
-  0%   { transform: translate(0, 0); }
-  20%  { transform: translate(-4px, 0); }
-  40%  { transform: translate(5px, 0); }
-  60%  { transform: translate(-3px, 0); }
-  80%  { transform: translate(4px, 0); }
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-4px, 0); }
+  40% { transform: translate(5px, 0); }
+  60% { transform: translate(-3px, 0); }
+  80% { transform: translate(4px, 0); }
   100% { transform: translate(0, 0); }
 }
 
 @keyframes smokePulse {
-  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.65); }
-  20%  { opacity: 1; transform: translate(-50%, -50%) scale(0.92); }
-  55%  { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.65); }
+  20% { opacity: 1; transform: translate(-50%, -50%) scale(0.92); }
+  55% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
   100% { opacity: 0; transform: translate(-50%, -50%) scale(1.08); }
 }
 
